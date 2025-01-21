@@ -1,0 +1,33 @@
+.proportions-container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.proportion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.proportion-date {
+  margin-bottom: 10px;
+  font-weight: lighter;
+  font-size: 8px !important;
+  rotate: 90deg;
+}
+
+.proportion-bar {
+  width: 30px;
+  height: 100px;
+  display: flex;
+  flex-direction: column-reverse;
+  border: 1px solid #ccc;
+}
+
+.proportion-success,
+.proportion-warning,
+.proportion-error {
+  width: 100%;
+}

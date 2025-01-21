@@ -1,73 +1,59 @@
-# Frontend Technical Test
+# NgMonitorApiLogs
 
-The goal is to develop an interface to monitor REST APIs.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.1.
 
-Monitoring is based on API access logs.
+## Development server
 
-## Access logs
+To start a local development server, run:
 
-### Examples
-```json
-{
-  "timestamp": 1704068277,
-  "url": "https://example.com/path4?param2=piCm7fB&param3=XmU2wPB&param4=aRQOGl1",
-  "status": 0,
-  "response_time": 20
-}
+```bash
+ng serve
 ```
 
-```json
-{
-  "timestamp": 1704096307,
-  "url": "https://example.com/path2?param3=RHl5kC9&param4=vvrlmmH",
-  "status": 2,
-  "issue_type": 0,
-  "issue_description": "Missing required parameter: param2",
-  "response_time": 69
-}
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+## Code scaffolding
+
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+
+```bash
+ng generate component component-name
 ```
-### Attributes
 
-| name                | type   | required                                   | description                                                                                                                                                                 |
-|---------------------|--------|--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `timestamp`         | Number | yes                                        | Unix timestamp of the log in seconds                                                                                                                                        |
-| `url`               | String | yes                                        | Request URL                                                                                                                                                                 |
-| `response_time`     | Number | yes                                        | API response time in milliseconds                                                                                                                                           |
-| `status`            | Number | yes                                        | Code corresponding to the request status:<ul><li>0: Success</li><li>1: Warning</li><li>2: Error</li></ul>                                                                                           |
-| `issue_type`        | Number | Only when `status` is "Warning" or "Error" | Code corresponding to the warning or error encountered:<ul><li>0: Missing Parameter</li><li>1: Rate limit exceeded</li><li>2: Not Found</li><li>3: Unknown Parameter</li><li>4: Deprecated</li><li>5: Unsecure</li></ul>  |
-| `issue_description` | String | Only when `status` is "Warning" or "Error" | Human readable details on the warning or error                                                                                                                              |
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-### Test Sample
+```bash
+ng generate --help
+```
 
-A sample of logs spanning a one-month period is provided in this file: [access_logs.json](access_logs.json)
+## Building
 
-## Exercise requirements
+To build the project run:
 
-Develop an Angular 17+ application to monitor access logs.
+```bash
+ng build
+```
 
-It should consist of:
-- Selectors to filter access logs based on a combination of:
-  - timestamp range
-  - status
-  - issue type
-  - URL path (without query parameters)
-  - response time range
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-- A stacked bar graph showing the number of requests per hour or per day based on selected filters. Hour/day granularity can be selected by the user.
-Each bar of the graph is divided into 3 sections to show the proportion of requests statuses:
-  - Green section: Success
-  - Yellow section: Warning
-  - Red section: Error
+## Running unit tests
 
-- A list of logs matching the filters, with infinite scroll
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-Please provide instructions to start the application with the sample data provided.
+```bash
+ng test
+```
 
-# Evaluation criteria
+## Running end-to-end tests
 
-Your work will be evaluated based on:
-- User experience quality
-- Code performance
-- Code clarity and maintainability
+For end-to-end (e2e) testing, run:
 
-Note that this exercise is not about developing a graphical library from scratch; on the contrary, it is encouraged to use existing libraries when relevant.
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
